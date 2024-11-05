@@ -1,7 +1,7 @@
 services:
     app:
-        image: sumitchai18241/e-commerce-tossagun
-        container_name: e-commerce-tossagun
+        image: sumitchai18241/e-commerce-digital
+        container_name: e-commerce-digital
         build:
             context: .
             dockerfile: Dockerfile
@@ -21,9 +21,5 @@ services:
         # restart: always
         ports:
             - "3306:3306"
-        environment:
-            - MYSQL_DATABASE=e_commerce
-            - MYSQL_PASSWORD=18022541
-            - MYSQL_ROOT_PASSWORD=18022541
-        # volumes:
-        #     - mysql-data:/var/lib/mysql
+        volumes:
+            - <your_mysql_data>:/var/lib/mysql

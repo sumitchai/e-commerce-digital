@@ -1,0 +1,29 @@
+services:
+    app:
+        image: sumitchai18241/e-commerce-tossagun
+        container_name: e-commerce-tossagun
+        build:
+            context: .
+            dockerfile: Dockerfile
+
+        environment:
+            - PORT=${PORT}
+        ports:
+            - '3000:3000'
+        volumes:
+            - ./src:/app/src
+            - /app/node_modules
+        depends_on:
+            - mysql
+
+    mysql:
+        image: mysql
+        # restart: always
+        ports:
+            - "3306:3306"
+        environment:
+            - MYSQL_DATABASE=e_commerce
+            - MYSQL_PASSWORD=18022541
+            - MYSQL_ROOT_PASSWORD=18022541
+        # volumes:
+        #     - mysql-data:/var/lib/mysql
